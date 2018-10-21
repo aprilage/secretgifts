@@ -9,23 +9,26 @@
   </head>
   <body>
     <section>
-      <form action="index.html" method="post">
+      <form action=# method="post">
         <h2>Add new name</h2>
 
         <input
+          data-js="new-participant"
           type="text"
-          id="fullName"
-          name="participant_name"
+          name="fullName"
+          placeholder="Type full name"
         >
         <input
-          type="button"
-          value="Submit"
+          data-js="submit-participant"
+          name="submit"
+          type="submit"
+          value="Add Participant"
         >
       </form>
     </section>
     <section>
       <h3>Participant List</h3>
-      <ol>
+      <ol data-js="all-participants">
       </ol>
     </section>
 
