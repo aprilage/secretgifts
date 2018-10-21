@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
   //Grab new participants full name when "submit" it clicked
   //Submit the name to the full list of participants
   submitParticipantNameElement.addEventListener('click', (e) => {
+    e.preventDefault();
     const currentParticipantNameValue = addNewParticipantNameElement.value;
     const submittedParticipantName = `
-      <li data-js="participant">
+      <li data-js="participant"
+      >
         ${currentParticipantNameValue}
       </li>
     `;
