@@ -6,12 +6,24 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
   if (numberOfParticipants % 2 === 0) {
   // shuffle the list IF the number of participants is even
     const shuffledParticipants = _.shuffle(listOfParticipants);
-  }
+    console.log(shuffledParticipants);
+    shuffledParticipants.map((participant, i) => {
+      let indexToMatchWith = i + 1;
+      if (indexToMatchWith >= listOfParticipants.length) {
+        indexToMatchWith = 0;
+      }
+      const nextParticipant = shuffledParticipants[indexToMatchWith];
+      const matchedText = `${participant} buys for ${nextParticipant}`;
+      matches.push(matchText);
+    });
 
+    const matchedParticipantList = document.querySelector('[data-js="matched-participants"]');
+    console.log(matchedParticipantList);
+  }
 }
 
 
-//make the matches
+
 
 //Wait for content to load
 document.addEventListener('DOMContentLoaded', () => {
@@ -49,4 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     participantListElement.insertAdjacentHTML('beforeend', submittedParticipantName);
   });
 
+});
+
+participantMatcherButtonElement.addEventListener('click', (e) => {
+  handlePartipantMatcherButtonClick(e, listOfParticipants)
 });

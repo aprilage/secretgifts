@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Secret Gifts</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js" charset="utf-8"></script>
     <script src="js/main.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
@@ -30,14 +31,21 @@
       <h3>Participant List</h3>
       <ol data-js="all-participants">
       </ol>
+    </section>
+    <section>
+      <h3>Matches</h3>
+        <ul data-js="matched-participants">
+
+        </ul>
       <button
-        data-js = "participant-matcher-button"
+        data-js="participant-matcher-button"
         type="button"
         name="generate-matches"
         >
         make matches
       </button>
     </section>
+
 
   </body>
 </html>
