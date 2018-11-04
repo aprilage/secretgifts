@@ -1,3 +1,18 @@
+
+//Check to make sure number of participants is an even number
+function handlePartipantMatcherButtonClick(e, listOfParticipants) {
+  let matches = [];
+  const numberOfParticipants = listOfParticipants.length;
+  if (numberOfParticipants % 2 === 0) {
+  // shuffle the list IF the number of participants is even
+    const shuffledParticipants = _.shuffle(listOfParticipants);
+  }
+
+}
+
+
+//make the matches
+
 //Wait for content to load
 document.addEventListener('DOMContentLoaded', () => {
   //Element references
@@ -7,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitParticipantNameElement = document.querySelector('[data-js="submit-participant"]');
   //3. Full list of participants
   const participantListElement = document.querySelector('[data-js="all-participants"]');
-  const participantMatcherButtonElement = document.querySelector('[]');
+  const participantMatcherButtonElement = document.querySelector('[data-js ="participant-matcher-button"]');
 
 
   // Placeholder array to store all the participant's names in memory.
