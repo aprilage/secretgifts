@@ -13,12 +13,19 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
         indexToMatchWith = 0;
       }
       const nextParticipant = shuffledParticipants[indexToMatchWith];
-      const matchedText = `${participant} buys for ${nextParticipant}`;
+      const matchText = `${participant} buys for ${nextParticipant}`;
       matches.push(matchText);
     });
 
     const matchedParticipantList = document.querySelector('[data-js="matched-participants"]');
-    console.log(matchedParticipantList);
+
+    matchedParticipantList.innerHTML = "";
+      matches.forEach((match) => {
+        const htmlToAdd = `
+          <li> ${match} </li>
+        `;
+      matchedParticipantList.insertAdjacentHTML('beforeend', htmlToAdd);
+      })
   }
 }
 
@@ -60,9 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     participantListElement.insertAdjacentHTML('beforeend', submittedParticipantName);
   });
-
-});
-
-participantMatcherButtonElement.addEventListener('click', (e) => {
-  handlePartipantMatcherButtonClick(e, listOfParticipants)
+  participantMatcherButtonElement.addEventListener('click', (e) => {
+    handlePartipantMatcherButtonClick(e, listOfParticipants)
+  });
 });
