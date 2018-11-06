@@ -26,6 +26,8 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
         `;
       matchedParticipantList.insertAdjacentHTML('beforeend', htmlToAdd);
       })
+  } else {
+    alert('Sorry! You need an even number of participants.');
   }
 }
 
