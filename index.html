@@ -6,46 +6,47 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js" charset="utf-8"></script>
     <script src="js/main.js" charset="utf-8"></script>
     <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
-    <section>
-      <form action=# method="post">
-        <h2>Add new name</h2>
+    <div class="wrapper">
+      <section class="addParticipantForm">
+        <form action=# method="post">
+          <h2 class="heading" id="heading-addNew">Add new name</h2>
 
-        <input
-          data-js="new-participant"
-          type="text"
-          name="fullName"
-          placeholder="Type full name"
-        >
-        <input
-          data-js="submit-participant"
-          name="submit"
-          type="submit"
-          value="Add Participant"
-        >
-      </form>
-    </section>
-    <section>
-      <h3>Participant List</h3>
-      <ol data-js="all-participants">
-      </ol>
-    </section>
-    <section>
-      <h3>Matches</h3>
-        <ul data-js="matched-participants">
+          <input id="bigInputBox"
+            data-js="new-participant"
+            type="text"
+            name="fullName"
+            placeholder="Type full name"
+          >
+          <input id="submitNameButton"
+            data-js="submit-participant"
+            name="submit"
+            type="submit"
+            value="Add"
+          >
+        </form>
+      </section>
+      <section class="allParticipantsList">
+        <h3 class="heading">Participant List</h3>
+        <ol data-js="all-participants">
+        </ol>
+        <button
+          data-js="participant-matcher-button"
+          type="button"
+          name="generate-matches"
+          >
+          Match!
+        </button>
+      </section>
+      <section class="matchedParticipantsList">
+        <h3 class="heading" >Matches</h3>
+          <ul data-js="matched-participants">
 
-        </ul>
-      <button
-        data-js="participant-matcher-button"
-        type="button"
-        name="generate-matches"
-        >
-        make matches
-      </button>
-    </section>
-
+          </ul>
+      </section>
+    </div>
 
   </body>
 </html>

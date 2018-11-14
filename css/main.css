@@ -1,3 +1,61 @@
 * {
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  font-weight: lighter;
+}
+
+
+.wrapper {
+  max-width: 100%;
+  margin: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.heading {
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+
+.addParticipantForm {
+  grid-column: 1 / 5;
+  grid-row: 1;
+}
+
+#bigInputBox {
+  width: 60%;
+  padding: 15px;
+  font-size: 18px;
+  }
+
+#submitNameButton {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+li {
+  line-height: 50px;
+}
+
+.allParticipantsList {
+  grid-column: 1;
+  grid-row: 2 / 6;
+  padding-top: 30px;
+}
+
+.participantNames {
+  text-transform: capitalize;
+}
+
+#matchedParticipants {
+  list-style: none;
+}
+
+.matchedParticipantsList {
+  padding-top: 30px;
+  grid-column: 3 / 5;
+  grid-row: 2 / 6;
 }

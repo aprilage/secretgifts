@@ -22,7 +22,9 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
     matchedParticipantList.innerHTML = "";
       matches.forEach((match) => {
         const htmlToAdd = `
-          <li> ${match} </li>
+          <li class="participantNames" id="matchedParticipants">
+           ${match}
+          </li>
         `;
       matchedParticipantList.insertAdjacentHTML('beforeend', htmlToAdd);
       })
@@ -46,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const participantMatcherButtonElement = document.querySelector('[data-js ="participant-matcher-button"]');
 
 
+
+
   // Placeholder array to store all the participant's names in memory.
   let listOfParticipants = [];
 
@@ -58,10 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Along with building the HTML to be added to the page...
     // I want to store this in an array, so that I can access it fast later.
     listOfParticipants.push(currentParticipantNameValue);
-    console.log(listOfParticipants);
 
     const submittedParticipantName = `
-      <li
+      <li class="participantNames" id="allParticipants"
         data-js="participant"
       >
         ${currentParticipantNameValue}
@@ -71,5 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   participantMatcherButtonElement.addEventListener('click', (e) => {
     handlePartipantMatcherButtonClick(e, listOfParticipants)
+    
+
   });
 });
