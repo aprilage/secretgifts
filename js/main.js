@@ -6,7 +6,6 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
   if (numberOfParticipants % 2 === 0) {
   // shuffle the list IF the number of participants is even
     const shuffledParticipants = _.shuffle(listOfParticipants);
-    console.log(shuffledParticipants);
     shuffledParticipants.map((participant, i) => {
       let indexToMatchWith = i + 1;
       if (indexToMatchWith >= listOfParticipants.length) {
@@ -21,13 +20,15 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
 
     matchedParticipantList.innerHTML = "";
       matches.forEach((match) => {
+        // adding matches to page
         const htmlToAdd = `
-          <li class="participantNames" id="matchedParticipants">
+          <li class="participantNames">
            ${match}
           </li>
         `;
       matchedParticipantList.insertAdjacentHTML('beforeend', htmlToAdd);
       })
+      // clear input
   } else {
     alert('Sorry! You need an even number of participants.');
   }
@@ -70,11 +71,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ${currentParticipantNameValue}
       </li>
     `;
+    addNewParticipantNameElement.value = "";
     participantListElement.insertAdjacentHTML('beforeend', submittedParticipantName);
   });
   participantMatcherButtonElement.addEventListener('click', (e) => {
     handlePartipantMatcherButtonClick(e, listOfParticipants)
-    
-
   });
 });
