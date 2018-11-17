@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   </head>
   <body>
+    <div class="topnav">
+      <h4>Secret Gifts</h4>
+    </div>
     <div class="wrapper">
       <section class="addParticipantForm">
         <form action=# method="post">
@@ -20,7 +23,7 @@
             name="fullName"
             placeholder="Type full name"
           >
-          <input id="submitNameButton"
+          <input class="button"
             data-js="submit-participant"
             name="submit"
             type="submit"
@@ -32,7 +35,7 @@
         <h3 class="heading">Participant List</h3>
         <ol data-js="all-participants">
         </ol>
-        <button
+        <button class="button"
           data-js="participant-matcher-button"
           type="button"
           name="generate-matches"
@@ -42,7 +45,7 @@
       </section>
       <section class="matchedParticipantsList">
         <h3 class="heading" >Matches</h3>
-          <ul data-js="matched-participants">
+          <ul data-js="matched-participants" id="matchedParticipants">
 
           </ul>
       </section>

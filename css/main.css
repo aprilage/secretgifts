@@ -4,6 +4,26 @@
   font-weight: lighter;
 }
 
+body {
+  margin: 0;
+
+}
+
+
+.topnav {
+  background-color: #333;
+  border: 0;
+}
+
+.topnav h4 {
+  color: white;
+  font-weight: lighter;
+  text-align: center;
+  padding: 14px 16px;
+  margin: 0;
+}
+
+
 
 .wrapper {
   max-width: 100%;
@@ -15,7 +35,6 @@
 }
 
 .heading {
-  text-transform: uppercase;
   font-weight: lighter;
 }
 
@@ -30,10 +49,14 @@
   font-size: 18px;
   }
 
-#submitNameButton {
+.button {
   background-color: transparent;
   border: none;
   font-size: 18px;
+}
+
+.button:hover {
+  cursor: pointer;
 }
 
 li {
