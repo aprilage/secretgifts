@@ -22,7 +22,7 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
       matches.forEach((match) => {
         // adding matches to page
         const htmlToAdd = `
-          <li class="participantNames">
+          <li class="participantNames" id="matchedParticipants">
            ${match}
           </li>
         `;
