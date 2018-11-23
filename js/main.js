@@ -18,22 +18,18 @@ function handlePartipantMatcherButtonClick(e, listOfParticipants) {
       matches.push(matchText);
     });
 
-    const matchedParticipantList = document.querySelector('[data-js="matched-participants"]');
+    matches.forEach((match, index) => localStorage.setItem(`match-${index}`, match))
 
-    matchedParticipantList.innerHTML = "";
-      matches.forEach((match) => {
-        // creates HTML so matched message is visible to user
-        const htmlToAdd = `
-          <li class="participantNamesMatched">
-           ${match}
-          </li>
-        `;
-      matchedParticipantList.insertAdjacentHTML('beforeend', htmlToAdd);
-      })
-      // clear input
+    window.location.reload()
   } else {
     alert('Sorry! You need an even number of participants.');
   }
+}
+
+function handleMatchesClear(e) {
+  e.preventDefault();
+  localStorage.clear();
+  window.location.reload()
 }
 
 
@@ -50,9 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const participantListElement = document.querySelector('[data-js="all-participants"]');
   // 4. Button to make matches
   const participantMatcherButtonElement = document.querySelector('[data-js ="participant-matcher-button"]');
+  // 5. Button to clear Matches
+  const clearMatchesButtonElement = document.querySelector('[data-js ="clear-matches-button"]');
 
+  const matchedParticipantList = document.querySelector('[data-js="matched-participants"]');
 
+  const myStorage = window.localStorage
 
+  const matchesFromLocalStorage = Object.keys(localStorage)
+
+  matchedParticipantList.innerHTML = "";
+    matchesFromLocalStorage.forEach((match) => {
+      // creates HTML so matched message is visible to user
+      const htmlToAdd = `
+        <li class="participantNamesMatched">
+         ${myStorage.getItem(match)}
+        </li>
+      `;
+    matchedParticipantList.insertAdjacentHTML('beforeend', htmlToAdd);
+    })
 
   // Placeholder array to store all the participant's names in memory.
   let listOfParticipants = [];
@@ -78,7 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     addNewParticipantNameElement.value = "";
     participantListElement.insertAdjacentHTML('beforeend', submittedParticipantName);
   });
+
   participantMatcherButtonElement.addEventListener('click', (e) => {
     handlePartipantMatcherButtonClick(e, listOfParticipants)
   });
+
+  clearMatchesButtonElement.addEventListener('click', (e) => {
+    handleMatchesClear(e)
+  })
 });
